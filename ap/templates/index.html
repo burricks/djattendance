@@ -52,6 +52,28 @@
     </div>        
     {% endif %}
 
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h5 class="panel-title">This Week's Services</h5>
+      </div>
+      <div class="panel-body">
+<!--         <ul>
+        {% for service in services %}
+            <li>{service.name}</li>
+        {% endfor %}
+        </li> -->
+    {% if user.trainee.services %}
+      <ul>
+        {% for service in user.trainee.services.all %}
+          <li>{{ service.description }}</li>
+        {% endfor %}
+      </li>
+    {% else %}
+    No services this week
+          </div>
+    </div>
+    {% endif %}
+
 {% endblock %}
 
 

@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import Group
 
-from accounts.models import Trainee
 
 """ SERVICES models.py 
 This data model defines services in the training. We organize services in the following way:
@@ -45,8 +44,7 @@ class Service(Group):
     This also includes designated services such as Accounting or Lights.
     """
 
-    # which trainee this service belongs to
-    trainee = models.ForeignKey(Trainee, related_name="service")
+    
 
     description = models.TextField(blank=True, null=True)
     category = models.ForeignKey(Category)

@@ -219,7 +219,7 @@ class TraineeAdmin(ForeignKeyAutocompleteAdmin):
           'fields': (('account', 'active',), 'type', 'locality', 'term',
               ('date_begin', 'date_end',), ('married', 'spouse',),
               ('TA', 'mentor',), 'team', ('house', 'bunk',), 'address',
-              'self_attendance',)
+              'self_attendance', 'services')
       }),
   )
   list_display = ('__unicode__','current_term','_trainee_email','team', 'house',)

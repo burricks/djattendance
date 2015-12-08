@@ -133,6 +133,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     def email_user(self, subject, message, from_email=None):
         send_mail(subject, message, from_email, [self.email])
 
+
     def __unicode__(self):
         return "%s, %s <%s>" % (self.lastname, self.firstname, self.email)
 
@@ -192,7 +193,11 @@ class Trainee(Profile):
     locality = models.ManyToManyField(Locality)
     team = models.ForeignKey(Team, null=True, blank=True)
     house = models.ForeignKey(House, null=True, blank=True)
+#services
+    services = models.ManyToManyField(Service)
     bunk = models.ForeignKey(Bunk, null=True, blank=True)
+
+
 
     # personal information
     married = models.BooleanField(default=False)
@@ -213,6 +218,10 @@ class Trainee(Profile):
 
     def _trainee_email(self):
         return self.account.email
+
+    def _trainee_services(self):
+        return self.account.service.all()
+
 
     email = property(_trainee_email)  # should just use trainee.account.email
 
