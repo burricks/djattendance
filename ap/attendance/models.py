@@ -17,7 +17,6 @@ DATA MODELS:
             as well as each trainee.
 """
 
-
 class Roll(models.Model):
 
     ROLL_STATUS = (
@@ -28,7 +27,7 @@ class Roll(models.Model):
         ('P', 'Present')
     )
 
-    event = models.ForeignKey(Event)
+    event = models.ForeignKey(Event, related_name='events')
 
     trainee = models.ForeignKey(Trainee, related_name='rolls')
 
@@ -49,3 +48,4 @@ class Roll(models.Model):
     def __unicode__(self):
         # return status, trainee name, and event
         return "[%s] %s @ %s" % (self.status, self.trainee, self.event)
+        # return "%s" % (self.status)

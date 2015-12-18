@@ -55,7 +55,7 @@ class LeaveSlip(models.Model):
     status = models.CharField(max_length=1, choices=LS_STATUS, default='P')
 
     TA = models.ForeignKey(TrainingAssistant)
-    trainee = models.ForeignKey(Trainee)  #trainee who submitted the leaveslip
+    trainee = models.ForeignKey(Trainee, related_name='%(class)s')  #trainee who submitted the leaveslip
 
     submitted = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
